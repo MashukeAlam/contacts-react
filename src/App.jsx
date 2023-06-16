@@ -2,9 +2,16 @@ import { useState } from 'react'
 
 import './index.css'
 import {data} from './data'
+import {Popup} from './Popup';
+
 
 function App() {
   const [search, setSearch] = useState('')
+  const [popup, setPopup] = useState({trigger: false, id: 1});
+  const back = () => {
+    console.log('here');
+    setPopup({trigger: false, id: 1})
+  }
   
   return (
     <>
@@ -23,7 +30,7 @@ function App() {
           {data.filter(item => {
             return search != '' ? item.first_name.toLowerCase().includes(search) : item
           }).map(item => (
-              <tr key={item.id}>
+              <tr onClick={() => setPopup({trigger: true, id: item.id - 1})} className='bg-emerald-200 hover:bg-emerald-300 hover:font-medium font-light' key={item.id}>
                 <td>{item.first_name}</td>
                 <td>{item.last_name}</td>
                 <td>{item.email}</td>
@@ -32,10 +39,11 @@ function App() {
           ))}
 
 
+
         </tbody>
       </table>
       </div>
-      
+      <Popup back={back} trigger={popup.trigger} email={data[popup.id].email} name={data[popup.id].first_name + " " + data[popup.id].last_name} phone={data[popup.id].phone_number} />
     </>
   )
 }
