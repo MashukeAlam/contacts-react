@@ -1,33 +1,41 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+import './index.css'
+import {data} from './data'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [search, setSearch] = useState('')
+  
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <h1 className='text-green-700 text-center font-extrabold'>Contacts React</h1>
+      <div className="table flex justify-center content-center">
+        <input className='border-2 m-2 p-2' type="text" name="" id="" onChange={e => setSearch(e.target.value)} />
+        {search !== '' ? <h3>Searching for {search} </h3> : <></>}
+        <table className='border table-fixed'>
+        <thead>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+        </thead>
+        <tbody>
+          {data.filter(item => {
+            return search != '' ? item.first_name.toLowerCase().includes(search) : item
+          }).map(item => (
+              <tr key={item.id}>
+                <td>{item.first_name}</td>
+                <td>{item.last_name}</td>
+                <td>{item.email}</td>
+                <td>{item.phone_number}</td>
+              </tr>
+          ))}
+
+
+        </tbody>
+      </table>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      
     </>
   )
 }

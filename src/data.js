@@ -1,4 +1,4 @@
-[{"id":1,"first_name":"Rene","last_name":"Dabs","email":"rdabs0@goodreads.com","gender":"Female","phone_number":"818-546-3027"},
+export const data = [{"id":1,"first_name":"Rene","last_name":"Dabs","email":"rdabs0@goodreads.com","gender":"Female","phone_number":"818-546-3027"},
 {"id":2,"first_name":"Lyndsey","last_name":"Karslake","email":"lkarslake1@usda.gov","gender":"Female","phone_number":"877-535-0375"},
 {"id":3,"first_name":"Juli","last_name":"Sydenham","email":"jsydenham2@imdb.com","gender":"Bigender","phone_number":"969-298-2894"},
 {"id":4,"first_name":"Arlie","last_name":"Karby","email":"akarby3@wufoo.com","gender":"Female","phone_number":"964-749-3508"},
