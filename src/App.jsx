@@ -9,10 +9,10 @@ function App() {
   return (
     <>
       <h1 className='text-green-700 text-center font-extrabold'>Contacts React</h1>
-      <div className="table flex justify-center content-center">
+      <div className="flex justify-center content-center flex-col items-center">
         <input className='border-2 m-2 p-2' type="text" name="" id="" onChange={e => setSearch(e.target.value)} />
         {search !== '' ? <h3>Searching for {search} </h3> : <></>}
-        <table className='border table-fixed'>
+        <table className='border table-auto'>
         <thead>
           <th>First Name</th>
           <th>Last Name</th>
